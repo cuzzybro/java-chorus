@@ -22,5 +22,9 @@ public class Chorus {
         return new BroadbandCheckerPage(page);
     }
 
+    public BroadbandResults broadbandResults() {
+        return new BroadbandResults(page);
+    }
+
 
 }
