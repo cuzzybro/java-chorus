@@ -25,6 +25,7 @@ public class TestBase {
                 .LaunchOptions()
                 .setHeadless(false)
         );
+
         try (InputStream stream = new FileInputStream("config.properties")) {
             props = new Properties();
             props.load(stream);
