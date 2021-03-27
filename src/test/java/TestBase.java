@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Path;
 import java.util.Properties;
 
 public class TestBase {
@@ -22,25 +23,29 @@ public class TestBase {
 
     @BeforeSuite
     public void build() {
-        playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType
-                .LaunchOptions()
-                .setHeadless(false)
-        );
-
+        // create property object
         try (InputStream stream = new FileInputStream("config.properties")) {
             props = new Properties();
             props.load(stream);
         } catch(IOException e) {
             e.printStackTrace();
         }
-
+        // set property values
+        boolean headless = Boolean.getBoolean(props.getProperty("headless"));
         Url = props.getProperty("baseUrl");
-        System.out.println(Url);
+        // initialise the playwright instance.
+        playwright = Playwright.create();
+
+        browser = playwright.chromium().launch(new BrowserType
+                .LaunchOptions()
+                .setHeadless(headless)
+        );
+
     }
 
     @BeforeTest
     public void launchSession() {
+        // create playwright session
         context = browser.newContext();
         page = context.newPage();
         chorus = new Chorus(page);
@@ -48,12 +53,14 @@ public class TestBase {
 
     @AfterTest
     public void endSession() {
+        // close session
         page.close();
         context.close();
     }
 
     @AfterSuite
     public void tearDown() {
+        // end instance
         browser.close();
         playwright.close();
     }

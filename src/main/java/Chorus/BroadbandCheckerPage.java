@@ -6,13 +6,16 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 
 public class BroadbandCheckerPage extends Chorus {
 
+    // page object selectors
     String addressInputField = "//input[@placeholder='Enter your address here']";
     String addressOption = "//div[@class='address-options-list-container']//li";
 
+    // constructor
     public BroadbandCheckerPage(Page page) {
         super(page);
     }
 
+    // methods
     public BroadbandCheckerPage enterAddress(String address) {
         page.waitForLoadState(LoadState.DOMCONTENTLOADED);
         page.waitForSelector(addressInputField,
