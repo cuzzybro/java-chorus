@@ -24,7 +24,7 @@ public class TestBase {
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
             .withHeadless(false)
         );
-        try (InputStream stream = new FileInputStream("src/test/resources/config.properties")) {
+        try (InputStream stream = new FileInputStream("config.properties")) {
             props = new Properties();
             props.load(stream);
         } catch(IOException e) {
