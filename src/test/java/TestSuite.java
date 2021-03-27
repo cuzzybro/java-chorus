@@ -10,6 +10,6 @@ public class TestSuite extends TestBase {
         chorus.broadbandCheckerPage()
                 .enterAddress("220 Tinakori Road, Thorndon, Wellington")
                 .clickFoundAddress()
-                .getCurrentOptions();
+                .getAvailableOptions();
     }
 }

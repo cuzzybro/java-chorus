@@ -17,7 +17,7 @@ public class BroadbandCheckerPage extends Chorus {
         page.waitForLoadState(LoadState.DOMCONTENTLOADED);
         page.waitForSelector(addressInputField,
                 new Page.WaitForSelectorOptions().setState(WaitForSelectorState.ATTACHED)).click();
-        page.type(addressInputField, address, new Page.TypeOptions().setDelay(50));
+        page.type(addressInputField, address, new Page.TypeOptions().setDelay(20));
         return this;
     }
 
