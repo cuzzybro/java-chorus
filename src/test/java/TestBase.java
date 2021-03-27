@@ -1,3 +1,4 @@
+import Chorus.Chorus;
 import com.microsoft.playwright.*;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
@@ -15,6 +16,7 @@ public class TestBase {
     protected Browser browser;
     protected BrowserContext context;
     protected Page page;
+    protected Chorus chorus;
     protected Properties props;
     protected String Url;
 
@@ -41,6 +43,7 @@ public class TestBase {
     public void launchSession() {
         context = browser.newContext();
         page = context.newPage();
+        chorus = new Chorus(page);
     }
 
     @AfterTest

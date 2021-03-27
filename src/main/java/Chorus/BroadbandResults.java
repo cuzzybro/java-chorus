@@ -4,6 +4,7 @@ import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.LoadState;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BroadbandResults extends Chorus {
@@ -19,9 +20,11 @@ public class BroadbandResults extends Chorus {
         page.waitForLoadState(LoadState.NETWORKIDLE);
     }
 
-    public void getAvailableOptions() {
-        printOptions(available);
-        printOptions(current);
+    public List<String> getAvailableOptions() {
+        List<String> availableCollection = getCollectionText(page.querySelectorAll(available));
+        List<String> currentCollection = getCollectionText(page.querySelectorAll(current));
+        availableCollection.addAll(currentCollection);
+        return availableCollection;
     }
 
     public void getCurrentOptions() {
@@ -31,6 +34,12 @@ public class BroadbandResults extends Chorus {
     private void printOptions(String selector) {
         List<ElementHandle> collection = page.querySelectorAll(selector);
         collection.forEach(element -> System.out.println(element.textContent()));
+    }
+
+    private List<String> getCollectionText(List<ElementHandle> collection) {
+        List<String> newCollection = new ArrayList<>();
+        collection.forEach(element -> newCollection.add(element.textContent().trim()));
+        return newCollection;
     }
 
 
