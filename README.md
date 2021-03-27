@@ -3,7 +3,7 @@
     - Intellij IDE
     - Java 8
     - Gradle
-    - Microsoft Playwright 1.10.0
+    - [Microsoft Playwright 1.10.0](https://github.com/microsoft/playwright-java)
     - TestNG
     The platform used is MacOS 11.2.1 Big Sur
 
