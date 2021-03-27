@@ -21,8 +21,9 @@ public class TestBase {
     @BeforeSuite
     public void build() {
         playwright = Playwright.create();
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
-            .withHeadless(false)
+        browser = playwright.chromium().launch(new BrowserType
+                .LaunchOptions()
+                .setHeadless(false)
         );
         try (InputStream stream = new FileInputStream("config.properties")) {
             props = new Properties();
@@ -48,10 +49,9 @@ public class TestBase {
     }
 
     @AfterSuite
-    public void tearDown() throws Exception{
+    public void tearDown() {
         browser.close();
         playwright.close();
-
     }
 
 

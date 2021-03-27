@@ -1,5 +1,8 @@
 import com.microsoft.playwright.ElementHandle;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.LoadState;
+import com.microsoft.playwright.options.WaitForSelectorState;
+import com.microsoft.playwright.options.WaitUntilState;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -10,14 +13,13 @@ public class TestSuite extends TestBase {
     public void firstTest() {
         page.navigate(Url);
         page.click("//h3[text()='Broadband checker']");
-        page.waitForLoadState(Page.LoadState.DOMCONTENTLOADED);
+        page.waitForLoadState(LoadState.DOMCONTENTLOADED);
         page.waitForSelector("//input[@placeholder='Enter your address here']",
-                new Page.WaitForSelectorOptions().withState(Page.WaitForSelectorOptions.State.ATTACHED)).click();
-        page.type("//input[@placeholder='Enter your address here']", "220 Tinakori Road, Thorndon, Wellington", new Page.TypeOptions().withDelay(50));
+                new Page.WaitForSelectorOptions().setState(WaitForSelectorState.ATTACHED)).click();
+        page.type("//input[@placeholder='Enter your address here']", "220 Tinakori Road, Thorndon, Wellington", new Page.TypeOptions().setDelay(50));
         page.waitForSelector("//div[@class='address-options-list-container']//li",
-                new Page.WaitForSelectorOptions().withState(Page.WaitForSelectorOptions.State.ATTACHED))
-                .click();
-        page.waitForLoadState(Page.LoadState.NETWORKIDLE);
+                new Page.WaitForSelectorOptions().setState(WaitForSelectorState.ATTACHED)).click();
+        page.waitForLoadState(LoadState.NETWORKIDLE);
         List<ElementHandle> notAvailable = page.querySelectorAll("//div[contains(@class, 'not-available')]/following-sibling::div/span");
         List<ElementHandle> available = page.querySelectorAll("//div[@class='top-label']/following-sibling::div/span");
         List<ElementHandle> onRequest = page.querySelectorAll("//div[contains(@class,'available-on-request')]/following-sibling::div/span");

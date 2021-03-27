@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compile group: 'com.microsoft.playwright', name: 'playwright', version: '0.180.0'
+    compile group: 'com.microsoft.playwright', name: 'playwright', version: '1.10.0'
     compile group: 'org.testng', name: 'testng', version: '+'
 }
 
