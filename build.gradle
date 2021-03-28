@@ -16,6 +16,7 @@ dependencies {
 
 test {
     useTestNG() {
+        outputDirectory = file('test-results/testng')
         suites 'src/test/java/test-suites/initial-test-suite.xml'
         useDefaultListeners = true
     }

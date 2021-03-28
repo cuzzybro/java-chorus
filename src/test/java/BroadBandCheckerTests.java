@@ -1,7 +1,6 @@
-import Chorus.Chorus;
-import org.testng.annotations.Test;
 
-import java.util.ArrayList;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import java.util.List;
 
 public class BroadBandCheckerTests extends TestBase {
@@ -18,9 +17,12 @@ public class BroadBandCheckerTests extends TestBase {
 
         options.forEach(System.out::println);
         try {
-            assert options.contains("Fibre Pro");
-            assert options.contains("Hyperfibre");
-            assert options.contains("Fibre");
+            Assert.assertEquals(options.get(0), "Fibre Pro");
+            Assert.assertEquals(options.get(1), "Hyperfibre");
+            Assert.assertEquals(options.get(2), "Fibre");
+//            assert options.contains("Fibre Pro");
+//            assert options.contains("Hyperfibre");
+//            assert options.contains("Fibre");
         } catch (AssertionError err) {
             err.printStackTrace();
         }

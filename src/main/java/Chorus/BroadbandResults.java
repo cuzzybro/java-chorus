@@ -16,9 +16,8 @@ public class BroadbandResults extends Chorus {
     String onRequest = "//div[contains(@class,'available-on-request')]/following-sibling::div/span";
     String mightBeAvailable = "//div[contains(@class,'might-be-available')]/following-sibling::div/span";
     String current = "//div[contains(@class, 'current-connection')]/following-sibling::div/span";
-    String loadSpinner = ".address-spinner-wrapper";
+    String loadSpinner = "//div[@class='address-spinner-wrapper' and @style='display: none;']";
 
-    String pa = "broadband-tools-broadband-checker page";
 
     // constructor - include navigation logic in here
     public BroadbandResults(Page page) {
@@ -42,8 +41,8 @@ public class BroadbandResults extends Chorus {
 
     // private reusable methods
     private void waitForNavigation() {
-        page.waitForSelector(loadSpinner, new Page.WaitForSelectorOptions().setState(WaitForSelectorState.HIDDEN));
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        page.waitForSelector(loadSpinner, new Page.WaitForSelectorOptions().setState(WaitForSelectorState.ATTACHED));
+        page.waitForLoadState(LoadState.DOMCONTENTLOADED);
     }
 
     private void printOptions(String selector) {

@@ -2,7 +2,7 @@
 This project is built using the following set of tools:
 - Intellij IDE
 - Java 8
-- Gradle
+- [Gradle](https://gradle.org/install/)
 - [Microsoft Playwright 1.10.0](https://github.com/microsoft/playwright-java)
 - TestNG
 
