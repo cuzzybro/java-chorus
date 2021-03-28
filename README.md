@@ -24,7 +24,7 @@ Chorus web site so I can decide on the service I want to order
 - clone project to local
 - navigate to local repository root directory
 - open directory in command line / cmd prompt
-> gradle clean build
+> gradle clean build --info
 - or using the wrapper
-> ./gradlew clean build test
+> ./gradlew clean build test --info
   
