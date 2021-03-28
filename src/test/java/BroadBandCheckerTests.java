@@ -1,6 +1,9 @@
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BroadBandCheckerTests extends TestBase {
@@ -15,14 +18,18 @@ public class BroadBandCheckerTests extends TestBase {
                 .clickFoundAddress()
                 .getAvailableOptions();
 
-        options.forEach(System.out::println);
-        try {
-            Assert.assertEquals(options.get(0), "Fibre Pro");
-            Assert.assertEquals(options.get(1), "Hyperfibre");
-            Assert.assertEquals(options.get(2), "Fibre");
-        } catch (AssertionError err) {
-            err.printStackTrace();
+        expected.add("Fibre Pro");
+        expected.add("Hyperfibre");
+        expected.add("Fibre");
+        for (int i=0; i<options.size(); i++) {
+            try {
+                Assert.assertEquals(options.get(i), expected.get(i));
+                System.out.println("actual value: '" + options.get(i) + "' | expected value: '" + expected.get(i) + "'");
+            }catch(AssertionError err) {
+                err.printStackTrace();
+            }
         }
+
     }
 
 }
