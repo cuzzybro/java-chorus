@@ -45,7 +45,7 @@ public class TestBase {
 
     }
 
-    @BeforeTest
+    @BeforeTest(alwaysRun = true)
     public void launchSession() {
         // create playwright session
         context = browser.newContext();
@@ -54,7 +54,7 @@ public class TestBase {
         expected = new ArrayList<>();
     }
 
-    @AfterTest
+    @AfterTest(alwaysRun = true)
     public void endSession() {
         // close session
         page.close();

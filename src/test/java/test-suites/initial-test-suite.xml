@@ -1,11 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="initial-test-suite">
-    <test name = "BroadBandCheckerTests">
+    <test name = "ChorusTests">
         <classes>
-
             <class name="BroadBandCheckerTests"/>
-
         </classes>
     </test>
 </suite>
