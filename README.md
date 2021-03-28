@@ -25,4 +25,6 @@ Chorus web site so I can decide on the service I want to order
 - navigate to local repository root directory
 - open directory in command line / cmd prompt
 > gradle clean build
+- or using the wrapper
+> ./gradlew clean build test
   
