@@ -18,3 +18,11 @@ Chorus web site so I can decide on the service I want to order
     - Select address from results list
     - Get available services text
 
+## Run in CLI
+** system prequisites: Java 1.8, Gradle 5.1.1 +
+
+- clone project to local
+- navigate to local repository root directory
+- open directory in command line / cmd prompt
+> gradle clean build
+  

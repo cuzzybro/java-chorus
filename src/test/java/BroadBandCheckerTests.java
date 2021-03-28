@@ -7,7 +7,7 @@ public class BroadBandCheckerTests extends TestBase {
 
     protected List<String> options;
 
-    @Test
+    @Test()
     public void testCheckBroadBandServicesAtAddress() {
         page.navigate(Url);
         options = chorus.broadbandCheckerPage()
@@ -20,11 +20,9 @@ public class BroadBandCheckerTests extends TestBase {
             Assert.assertEquals(options.get(0), "Fibre Pro");
             Assert.assertEquals(options.get(1), "Hyperfibre");
             Assert.assertEquals(options.get(2), "Fibre");
-//            assert options.contains("Fibre Pro");
-//            assert options.contains("Hyperfibre");
-//            assert options.contains("Fibre");
         } catch (AssertionError err) {
             err.printStackTrace();
         }
     }
+
 }
