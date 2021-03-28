@@ -31,4 +31,5 @@ Chorus web site so I can decide on the service I want to order
 ## Playwright
 Playwright is a browser automation solution provided by Microsoft. The initial core language for this library
 is Javascript. There are Typescript, Python and Java libraries now available. The Java offering is their
-latest. Documentation for the java implementation can be found [here](https://playwright.dev/java/). 
+latest. Playwright Java Documentation can be found [here](https://playwright.dev/java/docs/intro) and the API
+documentation can be found [here](https://playwright.dev/java/docs/api/class-playwright)
