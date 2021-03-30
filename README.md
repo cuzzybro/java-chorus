@@ -24,10 +24,13 @@ Chorus web site so I can decide on the service I want to order
 - clone project to local
 - navigate to local repository root directory
 - open directory in command line / cmd prompt
-> gradle clean build --info
+```commandline
+gradle clean build --info
+```
 - or using the wrapper
-> ./gradlew clean build test --info
-  
+```commandline
+./gradlew clean build test --info
+```
 ## Playwright
 Playwright is a browser automation solution provided by Microsoft. The initial core language for this library
 is Javascript. There are Typescript, Python and Java libraries now available. The Java offering is their
